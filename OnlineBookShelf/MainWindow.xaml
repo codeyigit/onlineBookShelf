@@ -1,0 +1,86 @@
+﻿<Window x:Class="OnlineBookShelf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OnlineBookShelf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen">
+    <Grid
+     Background="{StaticResource GradientBackground}">
+        <ListBox
+         x:Name="lbItems"
+         DisplayMemberPath="Name"
+         SelectionChanged="LbItems_SelectionChanged"
+         Height="250" Margin="50,92,470,92"/>
+        <Label Content="Choose directory:" HorizontalAlignment="Left" Margin="50,43,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.842,0.579"/>
+        <ComboBox 
+         x:Name="cbDirectories"
+         IsEditable="True"
+         KeyDown="CbDirectories_KeyDown"
+         TextBoxBase.TextChanged="CbDirectories_TextChanged"
+         HorizontalAlignment="Left" Margin="180,45,0,0" VerticalAlignment="Top" Width="150"/>
+        <Button 
+         x:Name="btnUpload"
+         Content="Upload"
+         Background="#4D8A7C"
+         Click="BtnUpload_Click"
+         HorizontalAlignment="Left" Margin="50,364,0,0" VerticalAlignment="Top" Width="70"/>
+        <Button 
+         x:Name="btnDownload"
+         Content="Download"
+         Background="#6C8D53"
+         Click="BtnDownload_Click"
+         HorizontalAlignment="Left" Margin="155,364,0,0" VerticalAlignment="Top" Width="70"/>
+        <Button 
+        x:Name="btnDownloadAll"
+        Content="Download All"
+        Background="#5A71D1"
+        Click="BtnDownloadAll_Click"            
+        HorizontalAlignment="Left" Margin="365,364,0,0" VerticalAlignment="Top" Width="100"/>
+        <Button 
+         x:Name="btnDelete"
+         Content="Delete"
+         Background="#8F1D2C"
+         Click="BtnDelete_Click"            
+         HorizontalAlignment="Left" Margin="260,364,0,0" VerticalAlignment="Top" Width="70"/>
+        <Label 
+         Content="Content type:" 
+         HorizontalAlignment="Left" Margin="385,92,0,0" VerticalAlignment="Top"/>
+        <TextBox 
+         Text="{Binding Properties.ContentType, Mode=OneWay}"
+         IsReadOnly="True"
+         HorizontalAlignment="Left" Margin="525,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="210" />
+        <Label 
+         Content="Source size:" 
+         HorizontalAlignment="Left" Margin="385,147,0,0" VerticalAlignment="Top"/>
+        <TextBox 
+         Text="{Binding Properties.ContentLength, Mode=OneWay}"
+         IsReadOnly="True"
+         HorizontalAlignment="Left" Margin="525,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="210" />
+        <Label 
+         Content="Date Created:" 
+         HorizontalAlignment="Left" Margin="385,201,0,0" VerticalAlignment="Top"/>
+        <TextBox 
+         Text="{Binding Properties.CreatedOn, Mode=OneWay}"
+         IsReadOnly="True"
+         HorizontalAlignment="Left" Margin="525,205,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="210" />
+        <Label 
+         Content="Last modified:" 
+         HorizontalAlignment="Left" Margin="385,256,0,0" VerticalAlignment="Top"/>
+        <TextBox 
+         Text="{Binding Properties.LastModified, Mode=OneWay}"
+         IsReadOnly="True"
+         HorizontalAlignment="Left" Margin="525,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="210" />
+        <Label 
+         Content="Server encrypted:" 
+         HorizontalAlignment="Left" Margin="385,312,0,0" VerticalAlignment="Top"/>
+        <TextBox 
+         Text="{Binding Properties.ServerEncrypted, Mode=OneWay}"
+         IsReadOnly="True"
+         HorizontalAlignment="Left" Margin="525,316,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="55" />
+
+
+    </Grid>
+</Window>
